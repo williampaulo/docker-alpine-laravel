@@ -16,7 +16,7 @@ RUN apk --update add wget \
   libgsasl-dev \
   supervisor
 
-RUN docker-php-ext-install mysqli mbstring pdo mcrypt pdo tokenizer xml
+RUN docker-php-ext-install mysqli mbstring pdo pdo_mysql mcrypt tokenizer xml
 RUN pecl channel-update pecl.php.net && pecl install memcached && docker-php-ext-enable memcached
 
 RUN rm /var/cache/apk/* && \
