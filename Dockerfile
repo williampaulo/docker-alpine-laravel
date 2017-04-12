@@ -6,16 +6,21 @@ RUN apk --update add wget \
   git \
   grep \
   nginx \
+  build-base \
   libmemcached-dev \
+  libmemcached-libs \
+  libmemcached \
   libmcrypt-dev \
   libxml2-dev \
   zlib-dev \
+  autoconf \
+  cyrus-sasl-dev \
+  libsasl \
+  libgsasl-dev \
   supervisor
 
 RUN docker-php-ext-install mysqli mbstring pdo mcrypt pdo tokenizer xml
-RUN pecl install memcached
-
-RUN apk --update add
+RUN pecl channel-update pecl.php.net && pecl install memcached && docker-php-ext-enable memcached
 
 RUN rm /var/cache/apk/* && \
     mkdir -p /var/www
