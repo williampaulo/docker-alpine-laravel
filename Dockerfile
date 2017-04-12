@@ -8,14 +8,11 @@ RUN apk --update add wget \
   nginx \
   build-base \
   libmemcached-dev \
-  libmemcached-libs \
-  libmemcached \
   libmcrypt-dev \
   libxml2-dev \
   zlib-dev \
   autoconf \
   cyrus-sasl-dev \
-  libsasl \
   libgsasl-dev \
   supervisor
 
