@@ -1,5 +1,5 @@
 FROM php:7.2-fpm-alpine
-LABEL MAINTAINER="William Paulo <wpsscontato@gmail.com>
+LABEL MAINTAINER="Niels van Doorn <n.van.doorn@outlook.com>"
 
 RUN apk --update add wget \
   curl \
