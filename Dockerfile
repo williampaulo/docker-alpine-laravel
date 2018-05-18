@@ -1,12 +1,14 @@
 FROM php:7.2-fpm-alpine
 LABEL MAINTAINER="Niels van Doorn <n.van.doorn@outlook.com>"
 
+
 RUN apk --update add wget \
   curl \
   git \
   grep \
   nginx \
   build-base \
+  postgresql-dev \
   libmemcached-dev \
   libmcrypt-dev \
   libxml2-dev \
@@ -16,8 +18,11 @@ RUN apk --update add wget \
   libgsasl-dev \
   supervisor
 
-RUN docker-php-ext-install mysqli mbstring pdo pdo_mysql mcrypt tokenizer xml
-RUN pecl channel-update pecl.php.net && pecl install memcached && docker-php-ext-enable memcached
+RUN pecl channel-update pecl.php.net \
+    && pecl install memcached mcrypt-1.0.1 \
+    && docker-php-ext-enable memcached \
+    && docker-php-ext-enable mcrypt \
+    && docker-php-ext-install pgsql mysqli mbstring pdo pdo_mysql pdo_pgsql tokenizer xml
 
 RUN rm /var/cache/apk/* && \
     mkdir -p /var/www
