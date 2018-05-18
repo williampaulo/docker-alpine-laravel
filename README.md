@@ -2,9 +2,10 @@
 This is a docker image based on the PHP7 FPM alpine image that is able to serve Laravel applications.
 
 ## Configuration
-- [php:7-fpm-alpine](https://hub.docker.com/_/php/) base image
+- [php:7.2-fpm-alpine](https://hub.docker.com/_/php/) base image
 - PHP7
   - FPM
+  - pgsql
   - mysqli
   - mbstring
   - pdo
