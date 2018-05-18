@@ -1,5 +1,5 @@
-FROM php:7-fpm-alpine
-MAINTAINER Niels van Doorn <n.van.doorn@outlook.com>
+FROM php:7.2-fpm-alpine
+LABEL MAINTAINER="William Paulo <wpsscontato@gmail.com>
 
 RUN apk --update add wget \
   curl \
